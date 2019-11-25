@@ -25,6 +25,15 @@ export class PostListComponent implements OnInit, OnDestroy {
     this.postsService.emitPost();
   }
 
+  onLike(post: Post) {
+    this.postsService.likePost(post);
+    console.log('loveIt ++ : ' + post.loveIts );
+  }
+
+  onDislike(post: Post) {
+    this.postsService.disikePost(post);
+    console.log('loveIt -- : ' + post.loveIts );
+  }
 
   ngOnDestroy() {
     this.postsSubscription.unsubscribe();
