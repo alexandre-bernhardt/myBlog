@@ -13,4 +13,12 @@ export class Post {
         this.created_at = new Date(Date.now());
 
     }
+
+    isPositiveLoveItsCount() {
+        return this.loveIts > 0;
+    }
+    
+    isNegativeLoveItsCount() {
+        return this.loveIts < 0;
+    }
 }
