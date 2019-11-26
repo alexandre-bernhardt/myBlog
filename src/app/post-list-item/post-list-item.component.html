@@ -3,9 +3,11 @@
 'list-group-item-danger': post.isNegativeLoveItsCount() }" >
     <h3 class="list-group-item-heading">
         {{ post.title }}
-        <h4 class="list-group-item-heading pull-right">{{ post.created_at | date: 'medium' }}</h4>
+        <h4 class="list-group-item-heading date pull-right">{{ post.created_at | date: 'medium' }}</h4>
     </h3>
     <p class="list-group-item-text">{{ post.content }}</p>
+    <br/>
     <button class="btn btn-success" (click)="onLike()">J'aime !</button>
     <button class="btn btn-danger" (click)="onDislike()">Pas ouf...</button>
+    <button class="btn btn-danger  pull-right" (click)="onDelete(post)">Supprimer post</button>
 </li>

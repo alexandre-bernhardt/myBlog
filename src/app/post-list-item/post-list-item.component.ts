@@ -26,4 +26,9 @@ export class PostListItemComponent implements OnInit {
     console.log('loveIt -- : ' + this.post.loveIts );
   }
 
+  onDelete(post: Post) {
+    console.log('supression post : ' + post.title);
+    this.postsService.removePost(post);
+  }
+
 }

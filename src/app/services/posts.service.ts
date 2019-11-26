@@ -1,5 +1,6 @@
 import { Post } from '../models/Post.model';
 import { Subject } from 'rxjs';
+import { post } from 'selenium-webdriver/http';
 
 export class PostsService {
 
@@ -25,4 +26,25 @@ export class PostsService {
         this.emitPost();
     }
     
+    createNewPost(newPost: Post) {
+        this.posts.push(newPost);
+        this.emitPost();
+    }
+
+    removePost(postToRemove: Post) {
+        const postIndex: number = this.posts.findIndex(
+            (post) => {
+                console.log(post.title);
+                if (post === postToRemove) {
+                    console.log('REMOVE >>>>> ' + post.title);
+                    return true;
+                }
+            }
+        );
+        console.log(postIndex);
+        console.log(this.posts.length);
+        this.posts.splice(postIndex, 1);
+        console.log(this.posts.length);
+        this.emitPost();
+    }
 }
